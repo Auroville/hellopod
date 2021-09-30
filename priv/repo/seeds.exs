@@ -9,3 +9,8 @@
 #
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
+
+
+Hellopod.Repo.insert!(%Hellopod.Content.Article{title: "Hello world 1", body: "Sample text 1"})
+
+Hellopod.Repo.insert!(%Hellopod.Content.Article{title: "Hello world 2", body: "Sample text 2"})
