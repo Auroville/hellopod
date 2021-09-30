@@ -17,7 +17,8 @@ defmodule HellopodWeb.Router do
   scope "/", HellopodWeb do
     pipe_through :browser
 
-    get "/", PageController, :index
+    get "/", ArticleController, :index
+    resources "/articles", ArticleController
   end
 
   # Other scopes may use custom stacks.
