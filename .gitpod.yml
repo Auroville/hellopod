@@ -1,0 +1,39 @@
+image:
+  file: .gitpod/Dockerfile
+
+tasks:
+# postgres should be started automatically by the CMD in gitpod/workspace-postgres
+  - name: Hello Pod
+    init: cd /workspace/hellopod && 
+      .gitpod/init.sh
+    command: cd /workspace/hellopod &&
+      .gitpod/command.sh
+    env:
+      PORT: 4000
+      PGHOST: localhost
+      PGPORT: 5432
+      PGUSER: gitpod
+      PGDATABASE: hellopod_dev
+      SECRET_KEY_BASE: N5tC9rMlM2ETJ2U8HFYXF8vdeBrLp6sDjNMtmnxxz350nAugLFbaFkemAUdWsscW
+      PGPASSWORD: postgres
+      DATABASE_URL: postgresql://gitpod:postgres@localhost:5432/hellopod_dev
+
+ports:
+  - port: 4000
+    onOpen: open-browser
+  - port: 5432
+    onOpen: ignore
+
+github:
+  prebuilds:
+    master: true
+    branches: true
+    pullRequests: true
+    pullRequestsFromForks: true
+    addCheck: true
+    addComment: true
+    addBadge: false
+
+vscode:
+  extensions:
+    - elixir-lsp.elixir-ls

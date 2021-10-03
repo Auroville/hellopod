@@ -2,7 +2,7 @@ import Config
 
 # Configure your database
 config :hellopod, Hellopod.Repo,
-  username: "postgres",
+  username: "gitpod",
   password: "postgres",
   database: "hellopod_dev",
   hostname: "localhost",
